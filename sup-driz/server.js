@@ -11,44 +11,6 @@ const router = express.Router();
 
 app.use(express.json());
 
-// const cars = [
-//   {
-//     id: 1,
-//     make: "Honda",
-//     model: "Civic",
-//     year: 2019,
-//     price: 20000,
-//   },
-//   {
-//     id: 2,
-//     make: "Honda",
-//     model: "Accord",
-//     year: 2018,
-//     price: 18000,
-//   },
-//   {
-//     id: 3,
-//     make: "Tesla",
-//     model: "Model 3",
-//     year: 2020,
-//     price: 40000,
-//   },
-//   {
-//     id: 4,
-//     make: "Tesla",
-//     model: "Model S",
-//     year: 2019,
-//     price: 50000,
-//   },
-//   {
-//     id: 5,
-//     make: "Ford",
-//     model: "Mustang",
-//     year: 2017,
-//     price: 30000,
-//   },
-// ];
-
 // a middleware function to log each request with the current timestamp and use next middleware to move to the next
 app.use((req, res, next) => {
   const timestamp = new Date().toISOString();
@@ -163,16 +125,9 @@ router.delete("/:id", async (req, res) => {
     return;
   }
 
-  const carIndex = await cars.findIndex((car) => car.id === id);
+  const [deletedCar] = await db.delete(cars).where(eq(cars.id, id)).returning();
 
-  if (carIndex === -1) {
-    res.status(404).send("car not found");
-    return;
-  }
-
-  await db.delete(cars).where(eq(cars.id, id)).returning();
-
-  res.status(204).json(cars);
+  res.status(204).json([deletedCar]);
 });
 
 // we use the router to specify the routes we want to use
