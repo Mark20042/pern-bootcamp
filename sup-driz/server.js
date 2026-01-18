@@ -57,14 +57,6 @@ router.post("/", async (req, res) => {
     return;
   }
 
-  //   const newCar = {
-  //     id: cars.length + 1,
-  //     make,
-  //     model,
-  //     year,
-  //     price,
-  //   };
-
   // we use [newCar] because we want to return the new car in { "id": 1, ... } a cleaner format rather than [ { "id": 1, ... } ]
   const [newCar] = await db
     .insert(cars)
