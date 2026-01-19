@@ -1,13 +1,25 @@
 import express from "express";
+import cors from "cors";
 import { db } from "./db.js";
 import { cars } from "./schema.js";
 import { eq, lt, gte, ne } from "drizzle-orm";
 import "dotenv/config";
 
 const app = express();
+const router = express.Router();
 const port = process.env.PORT;
 
-const router = express.Router();
+// --- CORS Config ---
+const corsConfig = {
+  origin: [
+    "http://localhost:3000",
+    "http://localhost:5173",
+    "http://localhost:5174",
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
+app.use(cors(corsConfig));
 
 app.use(express.json());
 
