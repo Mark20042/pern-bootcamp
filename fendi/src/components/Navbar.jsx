@@ -5,7 +5,6 @@ const Navbar = () => {
   return (
     <nav className="w-full   bg-white py-4 px-6 md:px-12 sticky top-0 z-50">
       <div className="max-w-8xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        {/* 1. LOGO */}
         <div className="flex items-center gap-2 self-start md:self-auto">
           <div className="p-2 bg-blue-300 border-2 border-blue-900 shadow-[2px_2px_0px_0px_#1e3a8a]">
             <CarFront className="w-6 h-6 text-blue-900" />
@@ -15,7 +14,6 @@ const Navbar = () => {
           </span>
         </div>
 
-        {/* 2. SEARCH BAR (New Addition) */}
         <div className="relative w-full max-w-md">
           <input
             type="text"
@@ -36,9 +34,7 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* 3. LINKS & CTA */}
         <div className="flex items-center gap-6 w-full md:w-auto justify-between md:justify-end">
-          {/* Navigation Links (Hidden on small mobile) */}
           <div className="hidden lg:flex gap-6 font-bold text-blue-900">
             <a
               href="#"
