@@ -1,15 +1,15 @@
 import Car from "./components/Car";
-import RecipeProvider from "./store/cars-provider";
+import CarsProvider from "./store/cars-provider";
 const App = () => {
   return (
-    <RecipeProvider>
+    <CarsProvider>
       <div>
         <h1>Welcome to the Car Store</h1>
         <ul>
           <Car />
         </ul>
       </div>
-    </RecipeProvider>
+    </CarsProvider>
   );
 };
 

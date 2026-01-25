@@ -8,6 +8,18 @@ const Car = () => {
     fetchCars();
   }, []);
 
+  if (!Array.isArray(cars)) {
+    return (
+      <div className="p-4 bg-red-100 border border-red-400 text-red-700">
+        <h3 className="font-bold">Debug Error</h3>
+        <p>
+          Expected an array, but got: <strong>{typeof cars}</strong>
+        </p>
+        <p>Value: {JSON.stringify(cars)}</p>
+      </div>
+    );
+  }
+
   return (
     <div>
       <h1>List of Cars</h1>

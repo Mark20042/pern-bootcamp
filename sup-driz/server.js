@@ -9,17 +9,7 @@ const app = express();
 const router = express.Router();
 const port = process.env.PORT;
 
-// --- CORS Config ---
-const corsConfig = {
-  origin: [
-    "http://localhost:3000",
-    "http://localhost:5173",
-    "http://localhost:5174",
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-};
-app.use(cors(corsConfig));
+app.use(cors());
 
 app.use(express.json());
 

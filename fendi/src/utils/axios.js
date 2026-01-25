@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "/api",
   // Set a timeout (throw error if server takes > 10 seconds)
   timeout: 80000,
 
